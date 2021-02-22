@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2521327724123252379}
   - component: {fileID: 114228051720717774}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Gold Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffa374fc702e7342a2f10926f4b0b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldCoinValue: 100

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GoldPickUp : MonoBehaviour
 {
+    [SerializeField] int goldCoinValue = 100;
+
     void Start()
     {
         
