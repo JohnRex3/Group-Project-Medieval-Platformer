@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     Animator myAnimator;
     CapsuleCollider2D myCapsuleCollider2D;
     BoxCollider2D myFeet;
-    CapsuleCollider2D myWeapon;
+    CapsuleCollider2D myWeapon; // make sure to set this on its own layer //
 
     void Start()
     {
