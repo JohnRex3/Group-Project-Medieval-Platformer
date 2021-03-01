@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] float playerRunSpeed = 1f;
     [SerializeField] float playerJumpSpeed = 1f;
+    [SerializeField] float timer = 360f;
+
+    [SerializeField] Text timerText; // If possible I want to move this to the game section script but as of this moment I can't call the Die Function from anywhere but here.
 
     bool isAlive = true;
 
@@ -22,6 +26,7 @@ public class Player : MonoBehaviour
         myCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
         myWeapon = GetComponent<CapsuleCollider2D>();
         myWeapon.enabled = false;
+        timerText.text = timer.ToString();
     }
 
     
@@ -34,7 +39,12 @@ public class Player : MonoBehaviour
         Die();
         TurnAround();
 
-        
+        timer -= Time.deltaTime;
+        timerText.text = timer.ToString();
+        if (timer <= 0)
+        {
+            Die();
+        }
     }
 
     private void Run()
