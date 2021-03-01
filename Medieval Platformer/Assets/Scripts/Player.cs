@@ -13,12 +13,15 @@ public class Player : MonoBehaviour
     Animator myAnimator;
     CapsuleCollider2D myCapsuleCollider2D;
     BoxCollider2D myFeet;
+    CapsuleCollider2D myWeapon;
 
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        myWeapon = GetComponent<CapsuleCollider2D>();
+        myWeapon.enabled = false;
     }
 
     
@@ -59,7 +62,10 @@ public class Player : MonoBehaviour
 
     private void Attack()
     {
-
+        if (Input.GetKeyDown("right click"))
+        {
+            StartCoroutine(AttackWithWeapon());
+        }
 
     }
 
@@ -80,5 +86,14 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
         }
+    }
+
+    private IEnumerator AttackWithWeapon()
+    {
+        myWeapon.enabled = true;
+        yield return new WaitForSecondsRealtime(1);
+        //probably need to have the animation call here but I don't remeber at this moment //
+        myWeapon.enabled = false;
+
     }
 }

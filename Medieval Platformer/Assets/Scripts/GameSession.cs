@@ -12,17 +12,31 @@ public class GameSession : MonoBehaviour
     [SerializeField] Text livesText;
     [SerializeField] Text scoreText;
 
+    private void Awake()
+    {
+        int numGameSessions = FindObjectsOfType<GameSession>().Length;
+        if (numGameSessions > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     void Start()
     {
-        
+        livesText.text = playerLives.ToString();
+        scoreText.text = scoreText.ToString();
     }
 
-
-    void Update()
+    public void AddToScore(int pointsToAdd)
     {
-        
-    }
+        playerScore += pointsToAdd;
+        scoreText.text = playerScore.ToString();
 
+    }
     public void ProcessPlayerDeath()
     {
         if (playerLives > 1)

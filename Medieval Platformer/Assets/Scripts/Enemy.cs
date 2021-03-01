@@ -31,7 +31,8 @@ public class Enemy : MonoBehaviour
         return transform.localScale.x > 0;
     }
 
-    private void OnTriggerExit2D(Collider2D collision) // make sure to set enemy box collider slightly in the ground for this to work. It will prevent enemies from walking off clifs
+    private void OnTriggerExit2D(Collider2D collision) 
+    // make sure to set enemy box collider slightly in the ground for this to work.
     {
         transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
     }
