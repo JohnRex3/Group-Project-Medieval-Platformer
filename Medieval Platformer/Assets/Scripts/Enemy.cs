@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float enemyMoveSpeed = 1f;
+    [SerializeField] float enemyMoveSpeed = 2f;
 
     Rigidbody2D myRigidBody;
+    CapsuleCollider2D myCapsuleCollider2D;
 
+    bool isAlive = true;
+
+    
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -31,8 +36,18 @@ public class Enemy : MonoBehaviour
         return transform.localScale.x > 0;
     }
 
-    private void OnTriggerExit2D(Collider2D collision) // make sure to set enemy box collider slightly in the ground for this to work. It will prevent enemies from walking off clifs
+    private void OnTriggerExit2D(Collider2D collision) 
+    // make sure to set enemy box collider slightly in the ground for this to work.
     {
         transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
+    }
+
+    private void Die()
+    {
+        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask")))
+        {
+            isAlive = false;
+            Destroy(gameObject);
+        }
     }
 }

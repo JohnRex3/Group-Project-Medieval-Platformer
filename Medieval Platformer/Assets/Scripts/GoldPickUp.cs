@@ -6,13 +6,9 @@ public class GoldPickUp : MonoBehaviour
 {
     [SerializeField] int goldCoinValue = 100;
 
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    void Update()
-    {
-        
+        FindObjectOfType<GameSession>().AddToScore(goldCoinValue);
+        Destroy(gameObject);
     }
 }
