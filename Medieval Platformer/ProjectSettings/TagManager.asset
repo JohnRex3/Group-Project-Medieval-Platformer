@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - Player
+  - Background
   - Forground
-  - Backround
+  - Foreground
   - Hazards
   - Collectables
   - Enemies
@@ -41,16 +41,16 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
+  - name: Background
     uniqueID: 3228349049
     locked: 0
   - name: Enemy
     uniqueID: 2147822891
     locked: 0
-  - name: Forground
+  - name: Foreground
     uniqueID: 3994347891
     locked: 0
-  - name: Backround
+  - name: Player
     uniqueID: 645200541
     locked: 0
   - name: Hazards
