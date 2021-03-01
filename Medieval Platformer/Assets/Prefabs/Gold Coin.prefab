@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 114228051720717774}
   - component: {fileID: 212414180186003816}
   - component: {fileID: 95902637869931254}
+  - component: {fileID: 111931152571410448}
   m_Layer: 12
   m_Name: Gold Coin
   m_TagString: Untagged
@@ -113,3 +114,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &111931152571410448
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550154906217443357}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
