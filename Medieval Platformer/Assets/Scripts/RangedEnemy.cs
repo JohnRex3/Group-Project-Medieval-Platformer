@@ -9,9 +9,6 @@ public class RangedEnemy : MonoBehaviour
     Rigidbody2D myRigidBody;
     CapsuleCollider2D myCapsuleCollider2D;
 
-    bool isAlive = true;
-
-
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -43,9 +40,8 @@ public class RangedEnemy : MonoBehaviour
 
     private void Die()
     {
-        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask")))
+        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // update this when we have a weapon mask
         {
-            isAlive = false;
             Destroy(gameObject);
         }
     }
