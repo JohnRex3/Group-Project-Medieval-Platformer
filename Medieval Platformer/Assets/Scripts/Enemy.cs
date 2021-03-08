@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask")))
+        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // add mask for player weapons later
         {
             Destroy(gameObject);
             FindObjectOfType<GameSession>().AddToScore(enemyCoinValue);

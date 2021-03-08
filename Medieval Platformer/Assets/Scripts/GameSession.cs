@@ -11,6 +11,11 @@ public class GameSession : MonoBehaviour
 
     [SerializeField] Text livesText;
     [SerializeField] Text scoreText;
+    [SerializeField] Text timerText;
+
+    [SerializeField] float timer = 360f;
+
+    public Player Die;
 
     private void Awake()
     {
@@ -25,10 +30,20 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    void Start()
+    public void Start()
     {
         livesText.text = playerLives.ToString();
         scoreText.text = scoreText.ToString();
+        timerText.text = timer.ToString();
+    }
+    public void Update()
+    {
+        timer -= Time.deltaTime;
+        timerText.text = timer.ToString();
+        if (timer <= 0)
+        {
+            Die.GetComponent<Player>().Die();
+        }
     }
 
     public void AddToScore(int pointsToAdd)

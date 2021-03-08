@@ -42,7 +42,7 @@ public class RangedEnemy : MonoBehaviour
 
     private void Die()
     {
-        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // update this when we have a weapon mask
+        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // add mask for player weapons later
         {
             Destroy(gameObject);
             FindObjectOfType<GameSession>().AddToScore(rangedEnemyCoinValue);

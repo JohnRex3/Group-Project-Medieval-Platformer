@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float playerRunSpeed = 1f;
     [SerializeField] float playerJumpSpeed = 1f;
-    [SerializeField] float timer = 360f;
 
     [SerializeField] Text timerText; // If possible I want to move this to the game section script but as of this moment I can't call the Die Function from anywhere but here.
 
@@ -31,8 +30,7 @@ public class Player : MonoBehaviour
         myCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
         myWeapon = GetComponent<CapsuleCollider2D>();
         myWeapon.enabled = false;
-        timerText.text = timer.ToString();
-        giveStartingWeapon(0);
+        GiveStartingWeapon(0);
     }
 
     void Update()
@@ -43,13 +41,6 @@ public class Player : MonoBehaviour
         Attack();
         Die();
         TurnAround();
-
-        timer -= Time.deltaTime;
-        timerText.text = timer.ToString();
-        if (timer <= 0)
-        {
-            Die();
-        }
     }
 
     private void Run()
@@ -83,7 +74,7 @@ public class Player : MonoBehaviour
 
     }
 
-    private void Die()
+    public void Die()
     {
         if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemies", "Hazards")))
         {
@@ -112,7 +103,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void giveStartingWeapon(int id)
+    public void GiveStartingWeapon(int id)
     {
         Weapons weaponToAdd = weaponDataBase.GetWeapons(id);
         characterWeapons.Add(weaponToAdd);
