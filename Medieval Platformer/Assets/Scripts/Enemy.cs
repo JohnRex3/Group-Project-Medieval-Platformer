@@ -10,8 +10,6 @@ public class Enemy : MonoBehaviour
     Rigidbody2D myRigidBody;
     CapsuleCollider2D myCapsuleCollider2D;
 
-    bool isAlive = true;
-
     
     void Start()
     {
@@ -46,7 +44,6 @@ public class Enemy : MonoBehaviour
     {
         if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask")))
         {
-            isAlive = false;
             Destroy(gameObject);
         }
     }
