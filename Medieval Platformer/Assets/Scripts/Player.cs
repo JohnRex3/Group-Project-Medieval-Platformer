@@ -13,11 +13,16 @@ public class Player : MonoBehaviour
 
     bool isAlive = true;
 
+    public List<Weapons> characterWeapons = new List<Weapons>();
+    public List<Weapons> weapons = new List<Weapons>();
+    public WeaponDataBase weaponDataBase;
+
     Rigidbody2D myRigidBody;
     Animator myAnimator;
     CapsuleCollider2D myCapsuleCollider2D;
     BoxCollider2D myFeet;
     CapsuleCollider2D myWeapon; // make sure to set this on its own layer //
+    
 
     void Start()
     {
@@ -27,9 +32,9 @@ public class Player : MonoBehaviour
         myWeapon = GetComponent<CapsuleCollider2D>();
         myWeapon.enabled = false;
         timerText.text = timer.ToString();
+        giveStartingWeapon(0);
     }
 
-    
     void Update()
     {
         if (!isAlive) { return; }
@@ -58,7 +63,6 @@ public class Player : MonoBehaviour
 
     }
 
-
     private void Jump()
     {
        if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Forground"))) { return; } // make sure the ground tiles are set to the Forground tag //
@@ -72,7 +76,7 @@ public class Player : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetKeyDown("right click"))
+        if (Input.GetKeyDown("left click"))
         {
             StartCoroutine(AttackWithWeapon());
         }
@@ -106,4 +110,14 @@ public class Player : MonoBehaviour
         myWeapon.enabled = false;
 
     }
+
+
+    public void giveStartingWeapon(int id)
+    {
+        Weapons weaponToAdd = weaponDataBase.GetWeapons(id);
+        characterWeapons.Add(weaponToAdd);
+        var weaponToRemoveLater = weaponToAdd;
+        Debug.Log("Add weapon" + weaponToAdd.name);
+    }
+
 }
