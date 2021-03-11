@@ -4173,6 +4173,9 @@ MonoBehaviour:
   playerScore: 0
   livesText: {fileID: 0}
   scoreText: {fileID: 0}
+  timerText: {fileID: 0}
+  timer: 360
+  Die: {fileID: 0}
 --- !u!1001 &2000427608750450159
 PrefabInstance:
   m_ObjectHideFlags: 0
