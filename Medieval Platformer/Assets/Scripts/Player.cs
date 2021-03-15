@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     CapsuleCollider2D myWeapon; // make sure to set this on its own layer //
     
 
-    void Start()
+    public void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
