@@ -13,7 +13,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] Text scoreText;
     [SerializeField] Text timerText;
 
-    [SerializeField] float timer = 5f;
+    [SerializeField] float timer = 300f;
 
     float timerCountDown = 0;
 
@@ -33,7 +33,7 @@ public class GameSession : MonoBehaviour
     public void Start()
     {
         livesText.text = playerLives.ToString();
-        scoreText.text = (scoreText.ToString() + "/how ever many coins we have");
+        scoreText.text = scoreText.ToString() + "/how ever many coins we have";
         timerText.text = timerCountDown.ToString();
         timerCountDown = timer;
     }
