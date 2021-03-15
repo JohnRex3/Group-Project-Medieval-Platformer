@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float playerRunSpeed = 1f;
-    [SerializeField] float playerJumpSpeed = 1f;
-
-    [SerializeField] Text timerText; // If possible I want to move this to the game section script but as of this moment I can't call the Die Function from anywhere but here.
+    [SerializeField] float playerRunSpeed = 5f;
+    [SerializeField] float playerJumpSpeed = 10f;
 
     bool isAlive = true;
 
@@ -28,6 +26,7 @@ public class Player : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        myFeet = GetComponent<BoxCollider2D>();
         myWeapon = GetComponent<CapsuleCollider2D>();
         myWeapon.enabled = false;
         GiveStartingWeapon(0);
@@ -56,7 +55,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-       if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Forground"))) { return; } // make sure the ground tiles are set to the Forground tag //
+       if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Foreground"))) { return; } 
 
         if (Input.GetButtonDown("Jump"))
         {
