@@ -13,9 +13,9 @@ public class GameSession : MonoBehaviour
     [SerializeField] Text scoreText;
     [SerializeField] Text timerText;
 
-    [SerializeField] float timer = 360f;
+    [SerializeField] float timer = 5f;
 
-    public Player Die;
+    float timerCountDown = 0;
 
     private void Awake()
     {
@@ -33,16 +33,18 @@ public class GameSession : MonoBehaviour
     public void Start()
     {
         livesText.text = playerLives.ToString();
-        scoreText.text = scoreText.ToString();
-        timerText.text = timer.ToString();
+        scoreText.text = (scoreText.ToString() + "/how ever many coins we have");
+        timerText.text = timerCountDown.ToString();
+        timerCountDown = timer;
     }
     public void Update()
     {
-        timer -= Time.deltaTime;
-        timerText.text = timer.ToString();
-        if (timer <= 0)
+        timerCountDown -= Time.deltaTime;
+        timerText.text = timerCountDown.ToString();
+        if (timerCountDown <= 0)
         {
-            Die.GetComponent<Player>().Die();
+         TakeLife();
+         timerCountDown = timer;
         }
     }
 
@@ -64,8 +66,9 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    private void TakeLife()
+    public void TakeLife()
     {
+        //Play Death Animation Here
         playerLives--;
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);

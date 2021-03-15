@@ -6,7 +6,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float enemyMoveSpeed = 2f;
-    [SerializeField] int enemyCoinValue = 50;
 
 
     Rigidbody2D myRigidBody;
@@ -47,7 +46,6 @@ public class Enemy : MonoBehaviour
         if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // add mask for player weapons later
         {
             Destroy(gameObject);
-            FindObjectOfType<GameSession>().AddToScore(enemyCoinValue);
         }
     }
 }

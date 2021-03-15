@@ -5,8 +5,6 @@ using UnityEngine;
 public class RangedEnemy : MonoBehaviour
 {
     [SerializeField] float enemyMoveSpeed = 2f;
-    [SerializeField] int rangedEnemyCoinValue = 75;
-
 
     Rigidbody2D myRigidBody;
     CapsuleCollider2D myCapsuleCollider2D;
@@ -45,7 +43,6 @@ public class RangedEnemy : MonoBehaviour
         if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // add mask for player weapons later
         {
             Destroy(gameObject);
-            FindObjectOfType<GameSession>().AddToScore(rangedEnemyCoinValue);
         }
     }
 }

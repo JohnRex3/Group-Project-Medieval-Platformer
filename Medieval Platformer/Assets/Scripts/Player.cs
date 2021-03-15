@@ -8,11 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] float playerRunSpeed = 5f;
     [SerializeField] float playerJumpSpeed = 10f;
 
-    bool isAlive = true;
-
-    public List<Weapons> characterWeapons = new List<Weapons>();
-    public List<Weapons> weapons = new List<Weapons>();
-    public WeaponDataBase weaponDataBase;
+    public bool isAlive = true;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
@@ -28,17 +24,15 @@ public class Player : MonoBehaviour
         myCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
         myFeet = GetComponent<BoxCollider2D>();
         myWeapon = GetComponent<CapsuleCollider2D>();
-        myWeapon.enabled = false;
-        GiveStartingWeapon(0);
     }
 
-    void Update()
+    public void Update()
     {
         if (!isAlive) { return; }
         Run();
         Jump();
         Attack();
-        Die();
+        TakeDamage();
         TurnAround();
     }
 
@@ -49,7 +43,7 @@ public class Player : MonoBehaviour
         myRigidBody.velocity = playerVelocity;
 
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("Running", playerHasHorizontalSpeed);
+        //myAnimator.SetBool("Running", playerHasHorizontalSpeed); put back in when we have a running animation
 
     }
 
@@ -66,20 +60,29 @@ public class Player : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetKeyDown("left click"))
+        if (Input.GetButtonDown("Attack1")) //Sword Attack
         {
-            StartCoroutine(AttackWithWeapon());
+            StartCoroutine(AttackWithWeapon()); 
+        }
+        else if(Input.GetButtonDown("Attack2")) //Bow Attack
+        {
+            //put the code to instansiate an arrow here when we have an arrow projectile
         }
 
     }
 
-    public void Die()
+    public void TakeDamage()
     {
         if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemies", "Hazards")))
         {
-            isAlive = false;
-            FindObjectOfType<GameSession>().ProcessPlayerDeath();
+            Die();
         }
+    }
+
+    public void Die()
+    { 
+        isAlive = false;
+        FindObjectOfType<GameSession>().ProcessPlayerDeath();
 
     }
 
@@ -101,13 +104,5 @@ public class Player : MonoBehaviour
 
     }
 
-
-    public void GiveStartingWeapon(int id)
-    {
-        Weapons weaponToAdd = weaponDataBase.GetWeapons(id);
-        characterWeapons.Add(weaponToAdd);
-        var weaponToRemoveLater = weaponToAdd;
-        Debug.Log("Add weapon" + weaponToAdd.name);
-    }
 
 }
