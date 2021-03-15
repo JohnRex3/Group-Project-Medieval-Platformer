@@ -5320,22 +5320,37 @@ PrefabInstance:
     - target: {fileID: 50525701189462944, guid: 261e6bfe79f8d0f47ab2650563e8768c,
         type: 3}
       propertyPath: m_BodyType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 50525701189462944, guid: 261e6bfe79f8d0f47ab2650563e8768c,
         type: 3}
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 58245031889772914, guid: 261e6bfe79f8d0f47ab2650563e8768c,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.03329226
+      objectReference: {fileID: 0}
+    - target: {fileID: 58245031889772914, guid: 261e6bfe79f8d0f47ab2650563e8768c,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.13148871
+      objectReference: {fileID: 0}
+    - target: {fileID: 58245031889772914, guid: 261e6bfe79f8d0f47ab2650563e8768c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0022960277
+      objectReference: {fileID: 0}
     - target: {fileID: 7391123720274338512, guid: 261e6bfe79f8d0f47ab2650563e8768c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.496
+      value: -0.535
       objectReference: {fileID: 0}
     - target: {fileID: 7391123720274338512, guid: 261e6bfe79f8d0f47ab2650563e8768c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.243
+      value: 1.233
       objectReference: {fileID: 0}
     - target: {fileID: 7391123720274338512, guid: 261e6bfe79f8d0f47ab2650563e8768c,
         type: 3}
