@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class GoldPickUp : MonoBehaviour
 {
-    [SerializeField] int goldCoinValue = 100;
+    [SerializeField] int goldCoinValue = 1;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        FindObjectOfType<GameSession>().AddToScore(goldCoinValue);
+        if (col.isTrigger) // be sure to check this if the players collider triggers are ever changed.
+        {
         Destroy(gameObject);
+        FindObjectOfType<GameSession>().AddToScore(goldCoinValue);
+        }
     }
+
+
 }

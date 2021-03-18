@@ -5,46 +5,35 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float playerRunSpeed = 1f;
-    [SerializeField] float playerJumpSpeed = 1f;
-    [SerializeField] float timer = 360f;
+    [SerializeField] float playerRunSpeed = 5f;
+    [SerializeField] float playerJumpSpeed = 10f;
 
-    [SerializeField] Text timerText; // If possible I want to move this to the game section script but as of this moment I can't call the Die Function from anywhere but here.
-
-    bool isAlive = true;
+    public bool isAlive = true;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
     CapsuleCollider2D myCapsuleCollider2D;
     BoxCollider2D myFeet;
     CapsuleCollider2D myWeapon; // make sure to set this on its own layer //
+    
 
-    void Start()
+    public void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        myFeet = GetComponent<BoxCollider2D>();
         myWeapon = GetComponent<CapsuleCollider2D>();
-        myWeapon.enabled = false;
-        timerText.text = timer.ToString();
     }
 
-    
-    void Update()
+    public void Update()
     {
         if (!isAlive) { return; }
         Run();
         Jump();
         Attack();
-        Die();
+        TakeDamage();
         TurnAround();
-
-        timer -= Time.deltaTime;
-        timerText.text = timer.ToString();
-        if (timer <= 0)
-        {
-            Die();
-        }
     }
 
     private void Run()
@@ -54,14 +43,13 @@ public class Player : MonoBehaviour
         myRigidBody.velocity = playerVelocity;
 
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("Running", playerHasHorizontalSpeed);
+        //myAnimator.SetBool("Running", playerHasHorizontalSpeed); put back in when we have a running animation
 
     }
 
-
     private void Jump()
     {
-       if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Forground"))) { return; } // make sure the ground tiles are set to the Forground tag //
+       if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Foreground"))) { return; } 
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -72,20 +60,29 @@ public class Player : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetKeyDown("right click"))
+        if (Input.GetButtonDown("Attack1")) //Sword Attack
         {
-            StartCoroutine(AttackWithWeapon());
+            StartCoroutine(AttackWithWeapon()); 
+        }
+        else if(Input.GetButtonDown("Attack2")) //Bow Attack
+        {
+            //put the code to instansiate an arrow here when we have an arrow projectile
         }
 
     }
 
-    private void Die()
+    public void TakeDamage()
     {
         if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemies", "Hazards")))
         {
-            isAlive = false;
-            FindObjectOfType<GameSession>().ProcessPlayerDeath();
+            Die();
         }
+    }
+
+    public void Die()
+    { 
+        isAlive = false;
+        FindObjectOfType<GameSession>().ProcessPlayerDeath();
 
     }
 
@@ -106,4 +103,6 @@ public class Player : MonoBehaviour
         myWeapon.enabled = false;
 
     }
+
+
 }

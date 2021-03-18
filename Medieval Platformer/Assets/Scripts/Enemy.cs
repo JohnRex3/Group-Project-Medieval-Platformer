@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float enemyMoveSpeed = 2f;
 
+
     Rigidbody2D myRigidBody;
     CapsuleCollider2D myCapsuleCollider2D;
 
@@ -42,7 +43,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask")))
+        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // add mask for player weapons later
         {
             Destroy(gameObject);
         }
