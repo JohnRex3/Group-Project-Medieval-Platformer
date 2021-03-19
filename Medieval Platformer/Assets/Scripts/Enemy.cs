@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
 
     Rigidbody2D myRigidBody;
-    CapsuleCollider2D myCapsuleCollider2D;
+    CircleCollider2D myCircleCollider2D;
 
     
     void Start()
@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        if (myCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // add mask for player weapons later
+        if (myCircleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // add mask for player weapons later
         {
             Destroy(gameObject);
         }
