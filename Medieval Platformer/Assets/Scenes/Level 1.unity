@@ -5214,6 +5214,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212869003002606846, guid: 63e8b95c14df33a4fbe674e52d82f262,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212869003002606846, guid: 63e8b95c14df33a4fbe674e52d82f262,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 970767239974806417, guid: 63e8b95c14df33a4fbe674e52d82f262,
         type: 3}
       propertyPath: m_Name
@@ -5288,6 +5298,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478202908476978975, guid: 63e8b95c14df33a4fbe674e52d82f262,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e8b95c14df33a4fbe674e52d82f262, type: 3}

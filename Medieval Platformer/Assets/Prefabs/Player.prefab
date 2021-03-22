@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRunSpeed: 1
   playerJumpSpeed: 1
-  weaponDataBase: {fileID: 0}
+  isAlive: 1
 --- !u!212 &212869003002606846
 SpriteRenderer:
   m_ObjectHideFlags: 0
