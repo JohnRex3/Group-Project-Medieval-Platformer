@@ -26,11 +26,11 @@ public class Enemy : MonoBehaviour
     {
         if (isFacingRight())
         {
-            myRigidBody.velocity = new Vector2(enemyMoveSpeed, 0);
+            myRigidBody.velocity = new Vector2(-enemyMoveSpeed, 0);
         }
         else
         {
-            myRigidBody.velocity = new Vector2(-enemyMoveSpeed, 0);
+            myRigidBody.velocity = new Vector2(enemyMoveSpeed, 0);
         }
 
     }
@@ -43,7 +43,6 @@ public class Enemy : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision) 
     // make sure to set enemy box collider slightly in the ground for this to work.
     {
-        //transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 2.1f);
         if (isFacingRight())
         {
             enemyScale.x = -enemyScaleX;
