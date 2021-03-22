@@ -11,21 +11,26 @@ public class Enemy : MonoBehaviour
     Rigidbody2D myRigidBody;
     CircleCollider2D myCircleCollider2D;
 
-    
+    Vector3 enemyScale;
+    float enemyScaleX;
+
+
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+        enemyScale = transform.localScale;
+        enemyScaleX = enemyScale.x;
     }
 
     void Update()
     {
         if (isFacingRight())
         {
-            myRigidBody.velocity = new Vector2(enemyMoveSpeed, 0);
+            myRigidBody.velocity = new Vector2(-enemyMoveSpeed, 0);
         }
         else
         {
-            myRigidBody.velocity = new Vector2(-enemyMoveSpeed, 0);
+            myRigidBody.velocity = new Vector2(enemyMoveSpeed, 0);
         }
 
     }
@@ -38,7 +43,15 @@ public class Enemy : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision) 
     // make sure to set enemy box collider slightly in the ground for this to work.
     {
-        transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
+        if (isFacingRight())
+        {
+            enemyScale.x = -enemyScaleX;
+        }
+        else
+        {
+            enemyScale.x = enemyScaleX;
+        }
+        transform.localScale = enemyScale;
     }
 
     private void Die()

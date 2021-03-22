@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     CapsuleCollider2D myCapsuleCollider2D;
     BoxCollider2D myFeet;
     CapsuleCollider2D myWeapon; // make sure to set this on its own layer //
+
+    Vector3 characterScale;
+    float characterScaleX;
     
 
     public void Start()
@@ -24,6 +27,8 @@ public class Player : MonoBehaviour
         myCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
         myFeet = GetComponent<BoxCollider2D>();
         myWeapon = GetComponent<CapsuleCollider2D>();
+        characterScale = transform.localScale;
+        characterScaleX = characterScale.x;
     }
 
     public void Update()
@@ -88,11 +93,15 @@ public class Player : MonoBehaviour
 
     private void TurnAround()
     {
-        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-        if (playerHasHorizontalSpeed)
+        if (Input.GetAxis("Horizontal") < 0)
         {
-            transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
+            characterScale.x = -characterScaleX;
         }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            characterScale.x = characterScaleX;
+        }
+        transform.localScale = characterScale;
     }
 
     private IEnumerator AttackWithWeapon()
