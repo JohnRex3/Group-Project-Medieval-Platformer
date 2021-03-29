@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float enemyMoveSpeed = 2f;
+    [SerializeField] public float enemyHealth = 1;
 
 
     Rigidbody2D myRigidBody;
@@ -56,9 +57,13 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        if (myCircleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // add mask for player weapons later
+        if(enemyHealth <= 0)
         {
             Destroy(gameObject);
         }
+        //if (myCircleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // add mask for player weapons later
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 }

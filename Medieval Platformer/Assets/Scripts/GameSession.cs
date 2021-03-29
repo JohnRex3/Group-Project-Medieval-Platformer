@@ -77,7 +77,7 @@ public class GameSession : MonoBehaviour
 
     private void ResetGameSession()
     {
-        SceneManager.LoadScene(5); // make sure main menu is set to be scene 0 // 
+        SceneManager.LoadScene(0); // make sure main menu is set to be scene 0 // 
         Destroy(gameObject);
     }
 }
