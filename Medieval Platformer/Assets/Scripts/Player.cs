@@ -14,11 +14,10 @@ public class Player : MonoBehaviour
     Animator myAnimator;
     CapsuleCollider2D myCapsuleCollider2D;
     BoxCollider2D myFeet;
-    CapsuleCollider2D myWeapon; // make sure to set this on its own layer //
+    CircleCollider2D myWeapon; // make sure to set this on its own layer //
 
     Vector3 characterScale;
     float characterScaleX;
-    
 
     public void Start()
     {
@@ -26,7 +25,7 @@ public class Player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
         myFeet = GetComponent<BoxCollider2D>();
-        myWeapon = GetComponent<CapsuleCollider2D>();
+        myWeapon = GetComponent<CircleCollider2D>();
         characterScale = transform.localScale;
         characterScaleX = characterScale.x;
     }
@@ -65,13 +64,9 @@ public class Player : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetButtonDown("Attack1")) //Sword Attack
+        if (Input.GetMouseButtonDown(0)) //Sword Attack
         {
-            StartCoroutine(AttackWithWeapon()); 
-        }
-        else if(Input.GetButtonDown("Attack2")) //Bow Attack
-        {
-            //put the code to instansiate an arrow here when we have an arrow projectile
+            //StartCoroutine(AttackWithWeapon()); 
         }
 
     }
@@ -104,14 +99,13 @@ public class Player : MonoBehaviour
         transform.localScale = characterScale;
     }
 
-    private IEnumerator AttackWithWeapon()
-    {
-        myWeapon.enabled = true;
-        yield return new WaitForSecondsRealtime(1);
-        //probably need to have the animation call here but I don't remeber at this moment //
-        myWeapon.enabled = false;
+    //private IEnumerator AttackWithWeapon()
+    //{
+     //   myWeapon.enabled = true;
+       // yield return new WaitForSecondsRealtime(1);
+        //myWeapon.enabled = false;
 
-    }
+//    }
 
 
 }
