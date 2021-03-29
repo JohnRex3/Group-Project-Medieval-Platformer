@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aeee25c4fb112e40873aeb30a5c38b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRunSpeed: 1
-  playerJumpSpeed: 1
+  playerRunSpeed: 5
+  playerJumpSpeed: 6
   isAlive: 1
 --- !u!212 &212869003002606846
 SpriteRenderer:
@@ -138,7 +138,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &70572975450832966
 CapsuleCollider2D:
