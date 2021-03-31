@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float enemyMoveSpeed = 2f;
-    [SerializeField] public float enemyHealth = 1;
+    [SerializeField] public float enemyHealth = 2;
 
 
     Rigidbody2D myRigidBody;
@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        Die();
         if (isFacingRight())
         {
             myRigidBody.velocity = new Vector2(-enemyMoveSpeed, 0);
@@ -33,7 +34,7 @@ public class Enemy : MonoBehaviour
         {
             myRigidBody.velocity = new Vector2(enemyMoveSpeed, 0);
         }
-
+        
     }
 
     bool isFacingRight()
@@ -60,6 +61,7 @@ public class Enemy : MonoBehaviour
         if(enemyHealth <= 0)
         {
             Destroy(gameObject);
+            Debug.Log("enemy killed");
         }
         //if (myCircleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // add mask for player weapons later
         //{

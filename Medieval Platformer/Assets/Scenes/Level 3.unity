@@ -4611,7 +4611,7 @@ Transform:
   - {fileID: 1629732359}
   - {fileID: 318586327}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!19719996 &1196229739
 TilemapCollider2D:
@@ -4714,7 +4714,7 @@ PrefabInstance:
     - target: {fileID: 560928301989193115, guid: 0072677e1ed5d9945ae5eb0b45164f5d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 560928301989193115, guid: 0072677e1ed5d9945ae5eb0b45164f5d,
         type: 3}
@@ -5467,7 +5467,21 @@ CompositeCollider2D:
       - X: -70000000
         Y: -50000000
   m_CompositePaths:
-    m_Paths: []
+    m_Paths:
+    - - {x: 9, y: 3}
+      - {x: 8, y: 3}
+      - {x: 8, y: -13}
+      - {x: -8, y: -13}
+      - {x: -8, y: -6}
+      - {x: -6, y: -6}
+      - {x: -6, y: 3}
+      - {x: -9, y: 3}
+      - {x: -9, y: 2}
+      - {x: -7, y: 2}
+      - {x: -7, y: -5}
+      - {x: -9, y: -5}
+      - {x: -9, y: -14}
+      - {x: 9, y: -14}
   m_VertexDistance: 0.0005
 --- !u!50 &1629732364
 Rigidbody2D:
@@ -5556,6 +5570,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameSession
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897240418079517852, guid: 055c7a0ea212fb840aae2d1b7d0072be,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897240418079517852, guid: 055c7a0ea212fb840aae2d1b7d0072be,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897240418079517852, guid: 055c7a0ea212fb840aae2d1b7d0072be,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897240418079517852, guid: 055c7a0ea212fb840aae2d1b7d0072be,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 055c7a0ea212fb840aae2d1b7d0072be, type: 3}
