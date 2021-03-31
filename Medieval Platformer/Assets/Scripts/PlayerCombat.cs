@@ -12,6 +12,8 @@ public class PlayerCombat : MonoBehaviour
 
     public LayerMask enemyLayer;
 
+    public int damage = 1;
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -28,7 +30,7 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies )
         {
-            Debug.Log("we hit" + enemy.name);
+            enemy.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 

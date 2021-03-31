@@ -6,7 +6,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float enemyMoveSpeed = 1.25f;
-    [SerializeField] public float enemyHealth = 2;
+    [SerializeField] public int enemyMaxHealth = 2;
+    int currentHealth;
 
 
     Rigidbody2D myRigidBody;
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         enemyScale = transform.localScale;
         enemyScaleX = enemyScale.x;
+        currentHealth = enemyMaxHealth;
     }
 
     void Update()
@@ -56,16 +58,23 @@ public class Enemy : MonoBehaviour
         transform.localScale = enemyScale;
     }
 
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+
+
+    }
     private void Die()
     {
-        if(enemyHealth <= 0)
+        if(currentHealth <= 0)
         {
+            //play death animation here
             Destroy(gameObject);
-            Debug.Log("enemy killed");
         }
-        //if (myCircleCollider2D.IsTouchingLayers(LayerMask.GetMask("Player", "Place Holder For Player Weapon Mask"))) // add mask for player weapons later
-        //{
-        //    Destroy(gameObject);
-        //}
     }
 }
