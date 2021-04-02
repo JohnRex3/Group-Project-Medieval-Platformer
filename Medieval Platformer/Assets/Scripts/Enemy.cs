@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int enemyMaxHealth = 2;
     int currentHealth;
 
+    Animator enemyAnimator;
 
     Rigidbody2D myRigidBody;
     CircleCollider2D myCircleCollider2D;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         enemyScale = transform.localScale;
         enemyScaleX = enemyScale.x;
         currentHealth = enemyMaxHealth;
+        enemyAnimator = GetComponent<Animator>();
     }
 
     void Update()
@@ -73,7 +75,7 @@ public class Enemy : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
-            //play death animation here
+            enemyAnimator.SetBool("Dying", true);   
             Destroy(gameObject);
         }
     }

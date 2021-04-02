@@ -33,7 +33,7 @@ public class GameSession : MonoBehaviour
     public void Start()
     {
         livesText.text = playerLives.ToString();
-        scoreText.text = scoreText.ToString() + "/how ever many coins we have";
+        scoreText.text = scoreText.ToString();
         timerText.text = timerCountDown.ToString();
         timerCountDown = timer;
     }
@@ -55,12 +55,6 @@ public class GameSession : MonoBehaviour
 
     }
 
-    public void AddToLifeTotal()
-    {
-        playerLives += 1;
-        livesText.text = playerLives.ToString();
-    }
-
     public void ProcessPlayerDeath()
     {
         if (playerLives > 1)
@@ -75,7 +69,6 @@ public class GameSession : MonoBehaviour
 
     public void TakeLife()
     {
-        //Play Death Animation Here
         playerLives--;
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);

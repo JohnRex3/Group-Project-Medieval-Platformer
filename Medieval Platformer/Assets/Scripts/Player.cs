@@ -70,6 +70,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     { 
+        myAnimator.SetBool("Dying", true);
         isAlive = false;
         FindObjectOfType<GameSession>().ProcessPlayerDeath();
 
