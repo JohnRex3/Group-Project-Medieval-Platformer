@@ -6199,36 +6199,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5832390762795910928, guid: da734636d8444f7429292c88e2503b90,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5832390762795910928, guid: da734636d8444f7429292c88e2503b90,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -134
-      objectReference: {fileID: 0}
-    - target: {fileID: 5832390762826542657, guid: da734636d8444f7429292c88e2503b90,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5832390762826542657, guid: da734636d8444f7429292c88e2503b90,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 44.941
-      objectReference: {fileID: 0}
-    - target: {fileID: 5832390762826542686, guid: da734636d8444f7429292c88e2503b90,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1291248003}
-    - target: {fileID: 5832390762826542686, guid: da734636d8444f7429292c88e2503b90,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5832390763313436322, guid: da734636d8444f7429292c88e2503b90,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6339,11 +6309,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 987524422}
-    - target: {fileID: 5832390763313436325, guid: da734636d8444f7429292c88e2503b90,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5832390763313436325, guid: da734636d8444f7429292c88e2503b90,
         type: 3}
       propertyPath: m_Enabled
@@ -6546,12 +6511,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1291248003 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5832390763313436329, guid: da734636d8444f7429292c88e2503b90,
-    type: 3}
-  m_PrefabInstance: {fileID: 1142410013}
-  m_PrefabAsset: {fileID: 0}
 --- !u!223 &1291248007 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 5832390763313436325, guid: da734636d8444f7429292c88e2503b90,
