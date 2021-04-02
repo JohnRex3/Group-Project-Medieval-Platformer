@@ -47,7 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffa374fc702e7342a2f10926f4b0b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldCoinValue: 100
+  goldCoinValue: 1
+  diamondValue: 0
+  isGoldCoin: 1
+  isDiamond: 0
+  isExtraLife: 0
 --- !u!212 &212414180186003816
 SpriteRenderer:
   m_ObjectHideFlags: 0

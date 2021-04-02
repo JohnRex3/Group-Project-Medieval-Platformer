@@ -5,13 +5,27 @@ using UnityEngine;
 public class GoldPickUp : MonoBehaviour
 {
     [SerializeField] int goldCoinValue = 1;
+    [SerializeField] int diamondValue = 5;
+    [SerializeField] bool isGoldCoin = false;
+    [SerializeField] bool isDiamond = false;
+    [SerializeField] bool isExtraLife = false;
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.isTrigger) // be sure to check this if the players collider triggers are ever changed.
+        if (isGoldCoin = true  && col.isTrigger) // be sure to check this if the players collider triggers are ever changed.
         {
         Destroy(gameObject);
         FindObjectOfType<GameSession>().AddToScore(goldCoinValue);
+        }
+        else if(isDiamond = true && col.isTrigger)
+        {
+            Destroy(gameObject);
+            FindObjectOfType<GameSession>().AddToScore(diamondValue);
+        }
+        else if (isExtraLife = true && col.isTrigger)
+        {
+            Destroy(gameObject);
+            FindObjectOfType<GameSession>().AddToLifeTotal();
         }
     }
 

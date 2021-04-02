@@ -54,6 +54,13 @@ public class GameSession : MonoBehaviour
         scoreText.text = playerScore.ToString();
 
     }
+
+    public void AddToLifeTotal()
+    {
+        playerLives += 1;
+        livesText.text = playerLives.ToString();
+    }
+
     public void ProcessPlayerDeath()
     {
         if (playerLives > 1)

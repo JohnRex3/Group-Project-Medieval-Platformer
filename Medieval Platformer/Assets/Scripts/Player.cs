@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
         myFeet = GetComponent<BoxCollider2D>();
-        myWeapon = GetComponent<CircleCollider2D>();
         characterScale = transform.localScale;
         characterScaleX = characterScale.x;
     }
@@ -35,7 +34,6 @@ public class Player : MonoBehaviour
         if (!isAlive) { return; }
         Run();
         Jump();
-        Attack();
         TakeDamage();
         TurnAround();
     }
@@ -47,7 +45,7 @@ public class Player : MonoBehaviour
         myRigidBody.velocity = playerVelocity;
 
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-        //myAnimator.SetBool("Running", playerHasHorizontalSpeed); put back in when we have a running animation
+        myAnimator.SetBool("Running", playerHasHorizontalSpeed);
 
     }
 
@@ -60,15 +58,6 @@ public class Player : MonoBehaviour
             Vector2 jumpVelocityToAdd = new Vector2(0f, playerJumpSpeed);
             myRigidBody.velocity += jumpVelocityToAdd;
         }
-    }
-
-    private void Attack()
-    {
-        if (Input.GetMouseButtonDown(0)) //Sword Attack
-        {
-            //StartCoroutine(AttackWithWeapon()); 
-        }
-
     }
 
     public void TakeDamage()
@@ -98,14 +87,6 @@ public class Player : MonoBehaviour
         }
         transform.localScale = characterScale;
     }
-
-    //private IEnumerator AttackWithWeapon()
-    //{
-     //   myWeapon.enabled = true;
-       // yield return new WaitForSecondsRealtime(1);
-        //myWeapon.enabled = false;
-
-//    }
 
 
 }
