@@ -895,7 +895,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Congrats You have defeated all the bosses
+  m_text: Congrats You have Cleared the levels and defeated the goblin king
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1a728b788683ea45b1774275081d863, type: 2}
   m_sharedMaterial: {fileID: 21010933835872002, guid: c1a728b788683ea45b1774275081d863,
@@ -965,12 +965,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1617266834}
-    characterCount: 41
+    characterCount: 65
     spriteCount: 0
-    spaceCount: 6
-    wordCount: 7
+    spaceCount: 10
+    wordCount: 11
     linkCount: 0
-    lineCount: 2
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
