@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 58470697192991814}
   - component: {fileID: 50386945500403052}
   - component: {fileID: 61464454638329228}
+  - component: {fileID: 95011217046593700}
+  - component: {fileID: 111686289189398250}
   m_Layer: 0
   m_Name: Goblin King
   m_TagString: Untagged
@@ -160,3 +162,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.06, y: 1.09}
   m_EdgeRadius: 0
+--- !u!95 &95011217046593700
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992610281782374521}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &111686289189398250
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992610281782374521}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0d2d932ddf9b804439a777e4207709db, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
